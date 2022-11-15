@@ -450,10 +450,17 @@ async function run_throw(): Promise<void> {
 			],
 			options
 		);
-		// Use a global insteadof entry because local configs aren't observed by git clone
+		// Use a global insteadof entry because local configs aren't observed by git clone (https)
 		await execShellCommand(
 			[
 				`/usr/bin/git config --global url.https://x-access-token:${importToken}@github.com.insteadof 'https://github.com'`,
+			],
+			options
+		);
+		// Use a global insteadof entry because local configs aren't observed by git clone (ssh)
+		await execShellCommand(
+			[
+				`/usr/bin/git config --global url.https://x-access-token:${importToken}@github.com/.insteadof git@github.com:'`,
 			],
 			options
 		);
