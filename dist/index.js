@@ -15407,9 +15407,9 @@ function run_throw() {
                 String.raw `/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader'` +
                     ` && git config --local --unset-all 'http.https://github.com/.extraheader' || true`,
             ], options);
-            // Use a global insteadof entry because local configs aren't observed by git clone
+            // Use a global insteadof entry because local configs aren't observed by git clone (ssh)
             yield execShellCommand([
-                `/usr/bin/git config --global url.https://x-access-token:${importToken}@github.com.insteadof 'https://github.com'`,
+                `/usr/bin/git config --global url.https://x-access-token:${importToken}@github.com/.insteadof 'git@github.com:'`,
             ], options);
             if (core.isDebug()) {
                 yield execShellCommand([`/usr/bin/git config --list --show-origin || true`], options);
