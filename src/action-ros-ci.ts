@@ -457,12 +457,10 @@ async function run_throw(): Promise<void> {
 			],
 			options
 		);
-		if (core.isDebug()) {
-			await execShellCommand(
-				[`/usr/bin/git config --list --show-origin || true`],
-				options
-			);
-		}
+		await execShellCommand(
+			[`/usr/bin/git config --list --show-origin || true`],
+			options
+		);
 	}
 
 	// Make sure to delete root .colcon directory if it exists

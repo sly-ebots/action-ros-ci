@@ -15411,9 +15411,7 @@ function run_throw() {
             yield execShellCommand([
                 `/usr/bin/git config --global url.https://x-access-token:${importToken}@github.com/.insteadof 'git@github.com:'`,
             ], options);
-            if (core.isDebug()) {
-                yield execShellCommand([`/usr/bin/git config --list --show-origin || true`], options);
-            }
+            yield execShellCommand([`/usr/bin/git config --list --show-origin || true`], options);
         }
         // Make sure to delete root .colcon directory if it exists
         // This is because, for some reason, using Docker, commands might get run as root
