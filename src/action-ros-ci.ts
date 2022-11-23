@@ -457,8 +457,8 @@ async function run_throw(): Promise<void> {
 			],
 			options
 		);
-		// ssh 
-				await execShellCommand(
+		// ssh
+		await execShellCommand(
 			[
 				`/usr/bin/git config --local --unset-all git@github.com:.extraheader || true`,
 			],
